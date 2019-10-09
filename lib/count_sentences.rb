@@ -6,6 +6,8 @@ class String
 
   def sentence?
     self.end_with?(".")
+    
+    # my bad solution:
     # if self[-1] == "."
     #   true
     # else
@@ -15,11 +17,6 @@ class String
 
   def question?
     self.end_with?("?")
-    # if self[-1] == "?"
-    #   true
-    # else
-    #   false
-    # end
   end
 
   def exclamation?
@@ -31,7 +28,7 @@ class String
     sentences += self.squeeze.count('.') + self.squeeze.count('?') + self.squeeze.count('!')
     sentences
     # binding.pry
-    
+
     # better solution:
     # self.split(/\.|\?|\!/).delete_if {|w| w.size < 2}.size
   end
