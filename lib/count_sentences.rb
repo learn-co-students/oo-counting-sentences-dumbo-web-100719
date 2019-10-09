@@ -5,27 +5,25 @@ class String
   attr_accessor :string
 
   def sentence?
-    if self[-1] == "."
-      true
-    else
-      false
-    end
+    self.end_with?(".")
+    # if self[-1] == "."
+    #   true
+    # else
+    #   false
+    # end
   end
 
   def question?
-    if self[-1] == "?"
-      true
-    else
-      false
-    end
+    self.end_with?("?")
+    # if self[-1] == "?"
+    #   true
+    # else
+    #   false
+    # end
   end
 
   def exclamation?
-    if self[-1] == "!"
-      true
-    else
-      false
-    end
+    self.end_with?("!")
   end
 
   def count_sentences
@@ -33,5 +31,8 @@ class String
     sentences += self.squeeze.count('.') + self.squeeze.count('?') + self.squeeze.count('!')
     sentences
     # binding.pry
+    
+    # better solution:
+    # self.split(/\.|\?|\!/).delete_if {|w| w.size < 2}.size
   end
 end
